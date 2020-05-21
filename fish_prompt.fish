@@ -22,7 +22,9 @@ end
 
 function _nix_shell
   if test -n "$IN_NIX_SHELL"
-    echo -n "nix-shell"
+    set_color red
+    echo -n "!! nix-shell !!"
+    set_color normal
   end
 end
 
@@ -145,9 +147,6 @@ function fish_prompt
   set_color $next_prompt_arrows
   echo -n
   echo -n  '╰─➤ '
-
-
-
 
   set_color normal
 end
