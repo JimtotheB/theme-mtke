@@ -104,6 +104,14 @@ function _git_prompt
   end
 end
 
+function _dotfiles_dirty
+  if [ $dotfilesDirty -ne 0 ]
+       set_color red
+       echo -n " dotfiles! "
+       set_color normal
+      end
+end
+
 function fish_prompt
   set -l exit_code $status
   if test $exit_code -ne 0
@@ -134,7 +142,7 @@ function fish_prompt
   _node_version
   _node_package
   _git_prompt
-  _nix_shell
+  _dotfiles_dirty
 
   # set_color -o cyan
 #   echo -n (__fish_git_prompt)
